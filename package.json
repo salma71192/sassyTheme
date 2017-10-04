@@ -1,0 +1,28 @@
+{
+  "name": "sassy",
+  "version": "1.0.0",
+  "description": "test for sass with wordpress",
+  "main": "index.php",
+  "repository": {
+    "type": "git",
+    "url": ".gitignore"
+  },
+  "keywords": [
+    "wordpress",
+    "sass"
+  ],
+  "author": "salma",
+  "license": "ISC",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0"
+  },
+  "dependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0"
+  }
+}
