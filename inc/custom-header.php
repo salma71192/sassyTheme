@@ -17,11 +17,19 @@
  * @uses sassy_header_style()
  */
 function sassy_custom_header_setup() {
+        
+        add_theme_support( 'custom-logo', array(
+            'height'      => 96,
+            'width'       => 96,
+            'flex-height' => false,
+            'flex-width'  => false,
+        ) );
+
 	add_theme_support( 'custom-header', apply_filters( 'sassy_custom_header_args', array(
 		'default-image'          => '',
-		'default-text-color'     => '000000',
-		'width'                  => 1000,
-		'height'                 => 250,
+		'default-text-color'     => 'fff',
+		'width'                  => 1600,
+		'height'                 => 400,
 		'flex-height'            => true,
 		'wp-head-callback'       => 'sassy_header_style',
 	) ) );

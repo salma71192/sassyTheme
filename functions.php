@@ -2,8 +2,6 @@
 /**
  * sassy functions and definitions
  *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
  * @package sassy
  */
 
@@ -59,6 +57,16 @@ function sassy_setup() {
 		'caption',
 	) );
 
+        // Add Post Formats
+        add_theme_support('post-formats', array(
+            'aside',
+            'image',
+            'video',
+            'quote',
+            'link'
+        ));
+        
+        
 	// Set up the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'sassy_custom_background_args', array(
 		'default-color' => 'ffffff',
@@ -106,8 +114,19 @@ add_action( 'widgets_init', 'sassy_widgets_init' );
  */
 function sassy_scripts() {
 	wp_enqueue_style( 'sassy-style', get_stylesheet_uri() );
+        
+        // Enqueue Local Fonts Stylesheet
+        wp_enqueue_style('sassy-local-fonts',  get_template_directory_uri() . '/fonts/custom-fonts.css');
+        
+        // Add Font Awesome icons (http://fontawesome.io) 
+	wp_enqueue_style( 'sassy-fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' );
+	
 
-	wp_enqueue_script( 'sassy-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'sassy-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), '20151215', true );
+        wp_localize_script( 'sassy-navigation', 'screenReaderText', array(
+		'expand'   => '<span class="screen-reader-text">' . __( 'expand child menu', 'sassy' ) . '</span>',
+		'collapse' => '<span class="screen-reader-text">' . __( 'collapse child menu', 'sassy' ) . '</span>',
+	) );
 
 	wp_enqueue_script( 'sassy-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
